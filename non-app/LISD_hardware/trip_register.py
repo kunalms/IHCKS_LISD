@@ -20,11 +20,7 @@ def trip_init():
 			userdata["timestamp"]=cur_time
 			userdata["latitude"]=latitude
 			userdata["longitude"]=longitude
-			link = """https://api.expertise97.hasura-app.io/api/insert_trip?user_id={str1}&
-																		vehicle_id={str2}&
-																		latitude={str3}&
-																		longitude={str4}&
-																		timestamp={str5}""".format(str1=userdata["user_id"],
+			link = """https://api.expertise97.hasura-app.io/api/insert_trip?user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}""".format(str1=userdata["user_id"],
 																									str2=userdata["vehicle_id"],
 																									str3=userdata["latitude"],
 																									str4=userdata["longitude"],
