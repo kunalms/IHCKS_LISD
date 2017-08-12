@@ -54,12 +54,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$user=$this->input->get('_USER_NAME');
 			$data['user_name']=$user;
-
 			$res=$this->lisd_model->fetch_by_username($data);
 			echo $res->user_id; 
 			$id=$res->user_id;
 			$data['user_id']=$id;
-			$vehicles=$this->fetch_user_vehicles($data);
+			$vehicles=$this->lisd_model->fetch_user_vehicles($data);
 			echo json_encode($vehicles);
 
 		}
