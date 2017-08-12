@@ -10,11 +10,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function __construct()
 		{
 			parent::__construct();
-
+			$this->load->model('lisd_model');
 		}
 
 		function index(){
-			$this->load->model('lisd_model');
+			
 			echo "api call";
 		}
 
