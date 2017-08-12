@@ -68,7 +68,7 @@
 			return $query->row();
 		}
 		
-		function fetch_latlong($data){
+		function get_latlong($data){
 			$this->db->where($data);
 			$this->db->limit(1);
 			$query=$this->db->get('trip_start');
