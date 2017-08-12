@@ -167,6 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$latitude=$this->input->get('latitude');
 			$longitude=$this->input->get('longitude');
 			$timestamp=$this->input->get('timestamp');
+			$is_trip_live=$this->input->get('is_trip_live');
 
 			$info['trip_id']=$trip_id;
 			$info['user_id']=$user_id;
@@ -174,6 +175,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$info['latitude']=$latitude;
 			$info['longitude']=$longitude;
 			$info['timestamp']=$timestamp;
+			$info['is_trip_live']=$is_trip_live;
 
 			$res=$this->lisd_model->insert_gps_details($info);
 			if($res>0){
