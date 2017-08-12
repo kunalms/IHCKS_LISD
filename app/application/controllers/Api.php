@@ -60,6 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$id=$res->user_id;
 			$data['user_id']=$id;
 			$vehicles=$this->fetch_user_vehicles($data);
+			echo json_encode($vehicles);
 
 		}
 
