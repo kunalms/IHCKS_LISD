@@ -16,7 +16,7 @@
 			$this->db->where($data);
 			$this->db->limit(1);
 			$query=$this->db->get('users');
-			return $query->result_array();
+			return $query->row();
 		}
 
 		function fetch_sliders()
