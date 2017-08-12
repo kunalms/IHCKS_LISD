@@ -76,14 +76,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			*/
 			$payload=$this->input->("post");
 			echo $payload;
-			$username=$form['first_name'];
+			/*$username=$form['first_name'];
 			$lastname=$form['last_name'];
 			$password=$form['password'];
 			$confpass=$form['confirm_password'];
 			$email=$form['email_id'];
 			$contact=$form['contact_no'];
 			echo  ($email);
-
+			*/
 			/*if($confpass==$password){
 			echo ('hihihihihihihi');
 			$info['user_name']=$username;
