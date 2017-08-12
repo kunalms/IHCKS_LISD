@@ -6,11 +6,10 @@ def stop_command(vehicle_id):
     theft=False
     userdata={}
     userdata["vehicle_id"]=vehicle_id
-    data=json.dumps(userdata)
-    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-    resp = requests.post('https://api.expertise97.hasura-app.io/api/get_flag_by_id', data=data,headers=headers,timeout=10)
+    link = """https://api.expertise97.hasura-app.io/api/get_flag_by_id?vehicle_id={str1}""".format(str1=userdata["vehicle_id"])
+    resp = requests.get(link,timeout=10)
     if resp.status_code==200:
         getdata=json.loads(resp.content.decode('utf-8'))
-        if(getdata["Immobilized"]):
+        if(getdata["immobilize"]):
             theft=True
     return theft
