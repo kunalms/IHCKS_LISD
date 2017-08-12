@@ -67,24 +67,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function insert_user(){
 			echo "hi";
-			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
+			/*$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
 			echo $request;
 			//$form=json_decode((string)$request);
 			echo $stream_clean;
 			//$obj=json_decode($input_data);
 			print_r( $form);
-			
-			/*$username=$form['first_name'];
-			$lastname=$form['last_name'];
-			$password=$form['password'];
-			$confpass=$form['confirm_password'];
-			$email=$form['email_id'];
-			$contact=$form['contact_no'];
-			echo  ($email);
 			*/
-			/*if($confpass==$password){
-			echo ('hihihihihihihi');
+			$username=$this->input->get('first_name');
+			$lastname=$this->input->get('last_name');
+			$password=$this->input->get('password');
+			$confpass=$this->input->get('confirm_password');
+			$email=$this->input->get('email_id');
+			$contact=$this->input->get('contact_no');
+			echo  ($email);
+			
+			if($confpass==$password){
+
 			$info['user_name']=$username;
 			$info['user_lastname']=$lastname;
 			$info['user_password']=$password;
@@ -102,7 +102,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$desc['description']="registration unsuccessful";
 					$ret['message']=$desc;
 					echo json_encode($ret);
-			}*/
+			}
+		}
+
+
+		function insert_vehicle(){
+
+			$vehicle_type=$this->input->get('vehicle_type');
+			$vehicle_count=$this->input->get('vehicle_count');
+			$immobilize=0;
+
+			$info['vehicle_type']=$vehicle_type;
+			$info['vehicle_count']=$vehicle_count;
+			$info['immobilize']=$immobilize;
+
+			$res=$this->insert_vehicle($info);
+			if($res==true){
+				$desc['description']="registration successful";
+				$ret['message']=$desc;
+				echo json_encode($ret);
+			}
+			}
+			else{
+				$desc['description']="registration unsuccessful";
+					$ret['message']=$desc;
+					echo json_encode($ret);
+			}
+
+		}
+
+
+		function insert_start_trip(){
+			$user_id=$this->input->get('user_id');
+			$vehicle_id=$this->input->get('vehicle_id');
+			$latittude=$this->input->get('latittude');
+			$longitude=$this->input->get('longitude');
+			$timestamp=$this->input->get('timestamp');
+
+			$info['user_id']=$user_id;
+			$info['vehicle_id']=$vehicle_id;
+			$info['latittude']=$latittude;
+			$info['longitude']=$longitude;
+			$info['timestamp']=$timestamp;
+
+			$res=$this->insert_gps_start($info);
+			if($res>0){
+				$ret['trip_id']=$res;
+				echo json_encode($ret);
+			}
+			}
+			else{
+				$desc['description']="insert failed";
+					$ret['message']=$desc;
+					echo json_encode($ret);
+			}
+
+
 		}
 	}
 
