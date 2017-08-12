@@ -53,4 +53,4 @@ $route['default_controller'] = 'api';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$routes['api']='api';
+$routes['welcome']='welcome';
