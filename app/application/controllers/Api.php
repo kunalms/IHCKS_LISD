@@ -132,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function insert_start_trip(){
-			
+
 			$user_id=$this->input->get('user_id');
 			$vehicle_id=$this->input->get('vehicle_id');
 			$latittude=$this->input->get('latittude');
@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$info['longitude']=$longitude;
 			$info['timestamp']=$timestamp;
 
-			$res=$this->insert_gps_start($info);
+			$this->insert_gps_start($info);
 			if($res>0){
 				$ret['trip_id']=$res;
 				echo json_encode($ret);
