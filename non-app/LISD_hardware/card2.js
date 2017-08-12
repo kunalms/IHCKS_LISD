@@ -42,7 +42,7 @@ pcsc.on('reader', function(reader) {
                            }
                        });
                     }
-                });
+                }) ;
     		}
     	}
     });
