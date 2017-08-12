@@ -85,7 +85,7 @@ while not comp:
                                 db.execute_sql("delete from admin_cards where id='%s';"%x[1])
                                 print("Card Deleted")
                 elif per=="access":
-                        istrip=True;
+                        istrip=False;
                         theft=False;
                         init_time=0;
                         GPIO.output(RELAY,GPIO.HIGH)
@@ -95,16 +95,17 @@ while not comp:
                         trip_id=0;
                         while x[0] != "card removed":
                                 print("Sending location")
-                                if(istrip):
+                                if(not istrip):
                                         init_time,trip_id=trip_init()
+                                        istrip = True
                                 else:
-                                        trip_cont(init_time,True,trip_id)
+                                        trip_cont(init_time,istrip,trip_id)
                                 x=os.popen("node card2.js").read().split('\n')
-                                trip_time=trip_cont(init_time,False,trip_id)
                                 #poll_count(x[1],100)
                                 if(theft):
                                         theft=stop_command(vehicle_id)
                                         break
+                        trip_time=trip_cont(init_time,False,trip_id)
                 else:
                         print("Card not registered")
  #   except:
