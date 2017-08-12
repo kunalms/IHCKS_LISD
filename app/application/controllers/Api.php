@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 
-		function insert_start_trip(){
+		function insert_trip(){
 
 			$user_id=$this->input->get('user_id');
 			$vehicle_id=$this->input->get('vehicle_id');
@@ -159,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 
-		function insert_trip_details(){
+		function update_trip(){
 
 			$trip_id=$this->input->get('trip_id');
 			$user_id=$this->input->get('user_id');
