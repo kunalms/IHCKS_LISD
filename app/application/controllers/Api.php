@@ -13,11 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function index(){
-			echo "api call"
+			echo "api call";
 		}
 
 		function insert_user{
-			
+
 			$username=$this->input->post('username');
 			echo $username;
 			$this->load->model('lisd_model');
