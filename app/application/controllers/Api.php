@@ -10,11 +10,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function __construct()
 		{
 			parent::__construct();
-			echo "hi";
 		}
 
 		function index(){
-			echo "hi";
+			echo "api call"
+		}
+
+		function insert_user{
+			
+			$username=$this->input->post('username');
+			echo $username;
+			$this->load->model('lisd_model');
 		}
 	}
 
