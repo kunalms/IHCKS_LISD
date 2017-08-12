@@ -19,13 +19,6 @@
 			return $query->result_array();
 		}
 
-		function validate_user($data)
-		{
-			$this->db->where($data);
-			$this->db->limit(1);
-			$query=$this->db->get('users');
-			return $query->result_array();
-		}
 
 		function fetch_by_username($username)
 		{
