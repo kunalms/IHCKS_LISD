@@ -213,6 +213,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    CURLOPT_RETURNTRANSFER => true
 			);
 
+			echo $optArray['CURLOPT_URL'];
 			// apply those options
 			curl_setopt_array($ch, $optArray);
 
