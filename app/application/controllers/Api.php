@@ -64,8 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function insert_user(){
-			echo "api call input_user";
 			$username=$this->input->get('username');
+			
 			echo $username;
 		
 			echo "api call input_user";

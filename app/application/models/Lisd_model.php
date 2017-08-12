@@ -22,9 +22,16 @@
 		function fetch_user_vehicles($data)
 		{
 			echo $data['user_id'];
+			$this->db->from('user_vehicle')
 			$this->db->where($data);
-			$query=$this->db->get('user_vehicle');
+			$this->db->join('vehicle', 'user_vehicle.vehicle_id = vehicle.vehicle_id');
+			$query=$this->db->get();
 			return $query->result_array();
+
+/*			$this->db->select('*');
+			$this->db->from('blogs');
+			$this->db->join('comments', 'comments.id = blogs.id');
+			$query = $this->db->get();*/
 		}
 
 		function fetch_by_username($username)
