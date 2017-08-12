@@ -21,6 +21,7 @@
 
 		function fetch_user_vehicles($data)
 		{
+			echo $data['user_id'];
 			$this->db->where($data);
 			$query=$this->db->get('user_vehicle');
 			return $query->result_array();
