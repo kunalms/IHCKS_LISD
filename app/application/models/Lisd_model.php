@@ -68,6 +68,23 @@
 			return $query->row();
 		}
 		
-	}
+		function fetch_latlong($data){
+			$this->db->where($data);
+			$this->db->limit(1);
+			$query=$this->db->get('trip_start');
+			$ret=array();
+			$row=$query->row();
+			$ret['startlat']=$row->latitude;
+			$ret['startlong']=$row->longitude;
+			$data['is_trip_live']='f';
+			$this->db->where($data);
+			$this->db->limit(1);
+			$query=$this->db->get('trip_details');
+			$row=$query->row();
+			$ret['endlat']=$row->latitude;
+			$ret['endlong']=$row->longitude;
+			return $ret;	
+
+		}
 
  ?>

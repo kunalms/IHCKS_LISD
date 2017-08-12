@@ -199,7 +199,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo json_encode($ret);
 		}
 
+		function Carbon_footprint_generate{
 
+			$ch = curl_init();
+			$vehicle_id=$this->input->get('vehicle_id');
+			$info['vehicle_id']=$vehicle_id;
+
+			$ret=$this->lisd_model->get_latlong($info);
+
+			// define options
+			$optArray = array(
+			    CURLOPT_URL => 'http://api.commutegreener.com/api/co2/emissions?startLat='.$ret['startlat'].'&endLat='.$ret['startlong'].'&endLng='.$ret['endlat'].'&endLng='.$ret['endlong'].'format=json',
+			    CURLOPT_RETURNTRANSFER => true
+			);
+
+			// apply those options
+			curl_setopt_array($ch, $optArray);
+
+			// execute request and get response
+			$result = curl_exec($ch);
+			// also get the error and response code
+			$errors = curl_error($ch);
+			$response = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			curl_close($ch);
+			var_dump($errors);
+			var_dump($response);
+		}
+
+				
 
 	}
 
