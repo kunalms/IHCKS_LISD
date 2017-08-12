@@ -19,20 +19,21 @@
 			return $query->result_array();
 		}
 
+		function insert_user($data)
+		{
+			$this->db->insert('user', $data);
+			return true;
+		}
+
 		function fetch_user_vehicles($data)
 		{
-			$this->db->select('vehicle_id AS `title`, vehicle_type AS `description`, vehicle_pollution_count AS `image`', FALSE);
 			$this->db->from('user_vehicle');
 			$this->db->where($data);
 			$this->db->join('vehicle', 'user_vehicle.vehicle_id = vehicle.vehicle_id');
 			$query=$this->db->get();
 			return $query->result_array();
-
-/*			$this->db->select('*');
-			$this->db->from('blogs');
-			$this->db->join('comments', 'comments.id = blogs.id');
-			$query = $this->db->get();*/
 		}
+
 
 		function fetch_by_username($username)
 		{
