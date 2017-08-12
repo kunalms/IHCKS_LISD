@@ -25,16 +25,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['user_name']=$username;
 			$data['user_password']=$password;
 			$res=$this->lisd_model->validate_user($data);
-			print_r($res);
+
 			if(sizeof($res)>0)
 			{
-			$data['sessionId']=$res['user_id'];
-			$data['message']="login successful";
-			echo json_encode($data);
+			$ret['sessionId']=$res['user_id'];
+			$ret['message']="login successful";
+			echo json_encode($ret);
 			}
 			else{
-			$data['message']="login successful";
-			echo json_encode($data);	
+			$ret['message']="login successful";
+			echo json_encode($ret);	
 			}
 
 		}
