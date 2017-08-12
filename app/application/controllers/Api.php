@@ -71,8 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$formjson = $request->form;
 			$form=json_decode($formjson);
 			echo $stream_clean;
-			$obj=json_decode($input_data);
-			echo $obj['form'];
+			//$obj=json_decode($input_data);
+			echo $form;
 			
 			$username=$form['first_name'];
 			$lastname=$form['last_name'];
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$contact=$form['contact_no'];
 			echo  ($email);
 
-			if($confpass==$password){
+			/*if($confpass==$password){
 			echo ('hihihihihihihi');
 			$info['user_name']=$username;
 			$info['user_lastname']=$lastname;
@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$desc['description']="registration unsuccessful";
 					$ret['message']=$desc;
 					echo json_encode($ret);
-			}
+			}*/
 		}
 	}
 
