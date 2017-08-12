@@ -34,7 +34,7 @@ def trip_init():
 						getdata=json.loads(resp.content.decode('utf-8'))
 						trip_id=getdata["trip_id"]
 				comp=True
-			return cur_time,trip_id
+				return cur_time,trip_id
 		except:
 			pass
 
