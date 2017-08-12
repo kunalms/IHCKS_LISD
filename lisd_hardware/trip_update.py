@@ -18,7 +18,6 @@ def trip_cont(start_time,flag,tripid):
 			userdata["uuid"]="109"
 			userdata["vehicleid"]="104"
 			userdata["timestampMs"]=cur_time
-			userdata["duration"]=cur_time-start_time
 			userdata["latitudeE7"]=latitude
 			userdata["longitudeE7"]=longitude
 			userdata["istriplive"]=flag;
