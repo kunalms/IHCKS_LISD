@@ -20,8 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function validate_user(){
 
-			$username=$this->input->get('textinput10');
-			$password=$this->input->get('textinput11');
+			$username=$this->input->post('textinput10');
+			$password=$this->input->post('textinput11');
 			
 			$data['user_name']=$username;
 
