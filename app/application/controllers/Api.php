@@ -66,20 +66,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function insert_user(){
-			echo "hi";
 			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
-			$first_name = $request->first_name;
-			echo "hi";
+			$formjson = $request->form;
+			$form=json_decode($formjson);
 			echo $stream_clean;
 			$obj=json_decode($input_data);
 			echo $obj['form'];
-			$username=$this->input->post('first_name');
-			$lastname=$this->input->post('last_name');
-			$password=$this->input->post('password');
-			$confpass=$this->input->post('confirm_password');
-			$email=$this->input->post('email_id');
-			$contact=$this->input->post('contact_no');
+			
+			$username=$form['first_name'];
+			$lastname=$form['last_name'];
+			$password=$form['password'];
+			$confpass=$form['confirm_password'];
+			$email=$from['email_id'];
+			$contact=$form['contact_no'];
 			echo  ($email);
 
 			if($confpass==$password){
