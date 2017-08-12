@@ -21,9 +21,15 @@ def trip_cont(start_time,flag,tripid):
 			userdata["latitude"]=latitude
 			userdata["longitude"]=longitude
 			userdata["is_trip_live"]=flag;
-			data=json.dumps(userdata)
-			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-			resp = requests.post('https://api.expertise97.hasura-app.io/api/update_trip', data=data,headers=headers,timeout=10)
-		comp=True
+			link = """https://api.expertise97.hasura-app.io/api/insert_trip?trip_id={str0}&user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}&is_trip_live={str6}""".format(str0=userdata["trip_id"],
+																									str1=userdata["user_id"],
+																									str2=userdata["vehicle_id"],
+																									str3=userdata["latitude"],
+																									str4=userdata["longitude"],
+																									str5=userdata["timestamp"],
+																									str6=userdata["is_trip_live"])
+			print(link)
+			resp = requests.get(link,timeout=10)
+			comp=True
 	if flag:
 		return cur_time-start_time;
