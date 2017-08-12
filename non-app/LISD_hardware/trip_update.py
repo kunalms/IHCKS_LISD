@@ -23,7 +23,7 @@ def trip_cont(start_time,flag,tripid):
 					userdata["latitude"]=latitude
 					userdata["longitude"]=longitude
 					userdata["is_trip_live"]=flag;
-					link = """https://api.expertise97.hasura-app.io/api/insert_trip?trip_id={str0}&user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}&is_trip_live={str6}""".format(str0=userdata["trip_id"],
+					link = """https://api.expertise97.hasura-app.io/api/update_trip?trip_id={str0}&user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}&is_trip_live={str6}""".format(str0=userdata["trip_id"],
 																											str1=userdata["user_id"],
 																											str2=userdata["vehicle_id"],
 																											str3=userdata["latitude"],
