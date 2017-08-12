@@ -7,19 +7,23 @@ from trip_update import *
 from CFstat import *
 import peewee as pw
 
+RELAY = 23
+WHITE_LED = 24
+GREEN_LED = 17
+
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(23,GPIO.OUT)
-GPIO.setup(24,GPIO.OUT)
-GPIO.setup(17,GPIO.OUT)
+GPIO.setup(RELAY,GPIO.OUT)
+GPIO.setup(WHITE_LED,GPIO.OUT)
+GPIO.setup(GREEN_LED,GPIO.OUT)
 comp=False
 vehicle_id="109"
 while not comp:
         x=os.popen("node card2.js").read().split('\n')
         if x[0] == "card removed":
-                GPIO.output(23,GPIO.HIGH)
-                GPIO.output(24,GPIO.LOW)
-                GPIO.output(17,GPIO.LOW)
+                GPIO.output(RELAY,GPIO.LOW)
+                GPIO.output(WHITE_LED,GPIO.LOW)
+                GPIO.output(GREEN_LED,GPIO.LOW)
                 print("Not available")
         else:
                 db=pw.SqliteDatabase('admin')
@@ -31,9 +35,9 @@ while not comp:
                 except:
                         per=None
                 if per=="add":
-                        GPIO.output(23,GPIO.LOW)
-                        GPIO.output(24,GPIO.HIGH)
-                        GPIO.output(17,GPIO.HIGH)
+                        GPIO.output(RELAY,GPIO.LOW)
+                        GPIO.output(WHITE_LED,GPIO.HIGH)
+                        GPIO.output(GREEN_LED,GPIO.LOW)
                         print("Add card for addition")
                         sleep(5)
                         x=os.popen("node card2.js").read().split('\n')
@@ -48,14 +52,14 @@ while not comp:
                                 db.execute_sql("insert into admin_cards values('%s','access');"%x[1])
                                 print("Card Registered")
                         for i in range(3):
-                                GPIO.output(17,GPIO.LOW)
+                                GPIO.output(GREEN_LED,GPIO.LOW)
                                 sleep(0.5)
-                                GPIO.output(17,GPIO.HIGH)
+                                GPIO.output(GREEN_LED,GPIO.HIGH)
                                 sleep(0.5)
                 elif per=="delete":
-                        GPIO.output(23,GPIO.HIGH)
-                        GPIO.output(24,GPIO.LOW)
-                        GPIO.output(17,GPIO.HIGH)
+                        GPIO.output(RELAY,GPIO.LOW)
+                        GPIO.output(WHITE_LED,GPIO.HIGH)
+                        GPIO.output(GREEN_LED,GPIO.LOW)
                         print("Add card for deletion")
                         sleep(2)
                         x=os.popen("node card2.js").read().split('\n')
@@ -68,9 +72,9 @@ while not comp:
                                 print("Card not registered yet")
                         else:
                                 for i in range(3):
-                                        GPIO.output(17,GPIO.LOW)
+                                        GPIO.output(GREEN_LED,GPIO.LOW)
                                         sleep(0.5)
-                                        GPIO.output(17,GPIO.HIGH)
+                                        GPIO.output(GREEN_LED,GPIO.HIGH)
                                         sleep(0.5)
                                 db.execute_sql("delete from admin_cards where id='%s';"%x[1])
                                 print("Card Deleted")
@@ -78,8 +82,8 @@ while not comp:
                         istrip=True;
                         theft=False;
                         init_time=0;
-                        GPIO.output(23,GPIO.LOW)
-                        GPIO.output(24,GPIO.HIGH)
+                        GPIO.output(RELAY,GPIO.HIGH)
+                        GPIO.output(WHITE_LED,GPIO.LOW)
                         print("Card Accepted")
                         x=os.popen("node card2.js").read().split('\n')
                         trip_id=0;
@@ -101,8 +105,8 @@ while not comp:
 #       GPIO.cleanup()
 #       comp=True
 for i in range(10):
-        GPIO.output(23,GPIO.LOW)
-        GPIO.output(24,GPIO.HIGH)
+        GPIO.output(RELAY,GPIO.LOW)
+        GPIO.output(WHITE_LED,GPIO.HIGH)
         sleep(2)
-        GPIO.output(23,GPIO.HIGH)
-        GPIO.output(24,GPIO.LOW)
+        GPIO.output(RELAY,GPIO.HIGH)
+        GPIO.output(WHITE_LED,GPIO.LOW)
