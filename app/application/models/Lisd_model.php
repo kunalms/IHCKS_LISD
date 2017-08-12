@@ -79,10 +79,10 @@
 			$data['is_trip_live']='f';
 			$this->db->where($data);
 			$this->db->limit(1);
-			$query=$this->db->get('trip_details');
-			$row=$query->row();
-			$ret['endlat']=$row->latitude;
-			$ret['endlong']=$row->longitude;
+			$query1=$this->db->get('trip_details');
+			$row1=$query1->row();
+			$ret['endlat']=$row1->latitude;
+			$ret['endlong']=$row1->longitude;
 			return $ret;	
 
 		}
