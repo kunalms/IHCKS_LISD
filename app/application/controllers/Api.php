@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$lastname=$form['last_name'];
 			$password=$form['password'];
 			$confpass=$form['confirm_password'];
-			$email=$from['email_id'];
+			$email=$form['email_id'];
 			$contact=$form['contact_no'];
 			echo  ($email);
 
