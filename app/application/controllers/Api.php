@@ -158,6 +158,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		}
+
+		function insert_trip_details(){
+
+			$trip_id=$this->input->get('trip_id');
+			$user_id=$this->input->get('user_id');
+			$vehicle_id=$this->input->get('vehicle_id');
+			$latitude=$this->input->get('latitude');
+			$longitude=$this->input->get('longitude');
+			$timestamp=$this->input->get('timestamp');
+
+			$info['trip_id']=$trip_id;
+			$info['user_id']=$user_id;
+			$info['vehicle_id']=$vehicle_id;
+			$info['latitude']=$latitude;
+			$info['longitude']=$longitude;
+			$info['timestamp']=$timestamp;
+
+			$res=$this->lisd_model->insert_gps_details($info);
+			if($res>0){
+				$ret['message']="successful insert";
+				echo json_encode($ret);
+			}
+			else{
+				$desc['description']="insert failed";
+					$ret['message']=$desc;
+					echo json_encode($ret);
+			}
+
+
+		}
+
+		function get_flag_by_id(){
+			$vehicle_id=$this->input->get('vehicle_id');
+			$info['vehicle_id']=$vehicle_id;
+			$res=$this->lisd_model->fetch_flag_by_id($info);
+			$ret['immobilize']=$res->immobilize;
+			echo json_encode($ret);
+		}
+
+
+
 	}
 
  ?>
