@@ -16,7 +16,7 @@
 			$this->db->select('user_id');
 			$this->db->where($data);
 			$this->db->limit(1);
-			$query=$this->db->get('user_vehicle');
+			$query=$this->db->get('users');
 			$res= $query->result_array();
 			if(sizeof($res)){
 			$data['sessionId']=$res['user_id'];
