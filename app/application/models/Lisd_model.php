@@ -13,12 +13,10 @@
 
 		function validate_user($data)
 		{
-			$this->db->select('user_id');
 			$this->db->where($data);
 			$this->db->limit(1);
 			$query=$this->db->get('users');
-			$res= $query->result_array();
-			return $res;
+			return $query->result_array();
 		}
 
 		function fetch_sliders()
