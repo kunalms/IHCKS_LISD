@@ -5,7 +5,7 @@ from audiorecord import *
 wav_file_creator()
 tone_ids=["anger","disgust","fear","sadness"]
 data = open('src/wav/test.wav', 'rb').read()
-resp = requests.post(url='http://TONER.eu-de.mybluemix.net/speech',
+resp = requests.post(url='http://root:$oh@il7642@TONER.eu-de.mybluemix.net/speech',
                     data=data,
                     headers={'Content-Type': 'application/octet-stream'})
 getdata=json.loads(resp.content.decode('utf-8'))
