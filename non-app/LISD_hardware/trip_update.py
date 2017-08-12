@@ -14,13 +14,13 @@ def trip_cont(start_time,flag,tripid):
 		longitude=(location[1])
 		if latitude != "0.0" and longitude != "0.0":
 			userdata={}
-			userdata["tripid"]=tripid
-			userdata["uuid"]="109"
-			userdata["vehicleid"]="104"
+			userdata["trip_id"]=tripid
+			userdata["user_id"]="109"
+			userdata["vehicle_id"]="104"
 			userdata["timestamp"]=cur_time
 			userdata["latitude"]=latitude
 			userdata["longitude"]=longitude
-			userdata["istriplive"]=flag;
+			userdata["is_trip_live"]=flag;
 			data=json.dumps(userdata)
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 			resp = requests.post('https://api.expertise97.hasura-app.io/api/update_trip', data=data,headers=headers,timeout=10)

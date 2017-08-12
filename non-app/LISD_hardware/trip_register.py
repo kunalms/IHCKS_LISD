@@ -25,7 +25,7 @@ def trip_init():
 			resp = requests.post('https://api.expertise97.hasura-app.io/api/insert_trip', data=data,headers=headers,timeout=10)
 			if resp.status_code==200:
 				getdata=json.loads(resp.content.decode('utf-8'))
-				trip_id=getdata["tripid"]
+				trip_id=getdata["trip_id"]
 		comp=True
 	return cur_time,trip_id
 
