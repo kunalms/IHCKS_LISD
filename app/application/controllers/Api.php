@@ -20,9 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function validate_user(){
 
-			$username=$this->input->get('_USER_NAME');
-			$password=$this->input->get('_PASSWORD');
+			$username=$this->input->get('textinput10');
+			$password=$this->input->get('textinput11');
+			
 			$data['user_name']=$username;
+
 			$data['user_password']=$password;
 			$res=$this->lisd_model->validate_user($data);
 
@@ -53,6 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$res=$this->lisd_model->fetch_by_username($data);
 			echo $res->user_id; 
 			$id=$res->user_id;
+			$data['user_id']=$id
+			$vehicles=$this->fetch_user_vehicles($data);
 
 		}
 
