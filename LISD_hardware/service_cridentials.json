@@ -1,0 +1,7 @@
+{
+  "username": "lisd",
+  "password": "lisdcrack",
+  "host": "lisd.cloudant.com",
+  "port": 443,
+  "url": "https://lisd:lisdcrack@lisd.cloudant.com"
+}

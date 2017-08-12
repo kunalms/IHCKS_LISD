@@ -26,14 +26,20 @@ while not comp:
                 GPIO.output(GREEN_LED,GPIO.LOW)
                 print("Not available")
         else:
+                print("1")
                 db=pw.SqliteDatabase('admin')
+                print("2")
                 db.connect()
+                print("3")
                 cur=db.execute_sql("select * from admin_cards where id='%s'"%x[1])
+                print("4")
                 z=list(cur.fetchall())
+                print("5")
                 try:
                         per=z[0][1]
                 except:
                         per=None
+                print("6")
                 if per=="add":
                         GPIO.output(RELAY,GPIO.LOW)
                         GPIO.output(WHITE_LED,GPIO.HIGH)
