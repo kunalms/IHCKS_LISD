@@ -25,6 +25,12 @@
 			return true;
 		}
 
+		function insert_vehicle($data)
+		{
+			$this->db->insert('vehicle', $data);
+			return true;
+		}
+
 		function fetch_user_vehicles($data)
 		{
 			$this->db->from('user_vehicle');
@@ -43,25 +49,11 @@
 			return $query->row();
 		}
 
-		function add_slider($data)
-		{
-			
-			$this->db->insert('sliders',$data);
+		function insert_gps_start(){
 
-		}
-
-		function disable_id($id)
-		{
-			$this->db->where('slider_id',$id);
-			$data['status']=0;
-			$this->db->update('sliders',$data);
-		}
-
-		function enable_id($id)
-		{
-			$this->db->where('slider_id',$id);
-			$data['status']=1;
-			$this->db->update('sliders',$data);
+			$this->db->insert('trip_start', $data);
+			$insert_id = $this->db->insert_id();
+   			return  $insert_id;
 		}
 		
 	}
