@@ -20,10 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('lisd_model');
+		$this->load->view('welcome.php');
 	}
-	public function insert_user(){
-
-
-	}
+	
 }
