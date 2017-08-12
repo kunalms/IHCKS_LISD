@@ -199,7 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo json_encode($ret);
 		}
 
-		function Carbon_footprint_generate{
+		function carbon_footprint_generate(){
 
 			$ch = curl_init();
 			$vehicle_id=$this->input->get('vehicle_id');
