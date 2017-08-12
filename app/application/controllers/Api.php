@@ -21,8 +21,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$username=$this->input->get('_USER_NAME');
 			$password=$this->input->get('_PASSWORD');
-			$data['user_name']=
-			$data['user_password']
+			$data['user_name']=$username;
+			$data['user_password']=$password;
 			$this->lisd_model->validate_user($data)
 
 		}
