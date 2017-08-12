@@ -67,8 +67,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function insert_user(){
 			echo "hi";
-			$json = $this->i
-			$input_data = json_decode(trim(file_get_contents('php://input')), true);
+			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
+			$request = json_decode($stream_clean);
+			$first_name = $request->first_name;
 			echo "hi";
 			$obj=json_decode($input_data);
 			echo $obj['form'];
