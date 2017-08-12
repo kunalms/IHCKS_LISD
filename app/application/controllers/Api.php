@@ -70,8 +70,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$confpass=$this->input->post('confirm_password');
 			$email=$this->input->post('email_id');
 			$contact=$this->input->post('contact_no');
+			echo  ($email);
 
 			if($confpass==$password){
+			echo ('hihihihihihihi');
 			$info['user_name']=$username;
 			$info['user_lastname']=$lastname;
 			$info['user_password']=$password;
