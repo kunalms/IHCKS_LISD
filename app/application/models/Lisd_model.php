@@ -21,7 +21,7 @@
 
 		function insert_user($data)
 		{
-			$this->db->insert('user', $data);
+			$this->db->insert('users', $data);
 			return true;
 		}
 
