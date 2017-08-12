@@ -21,11 +21,15 @@ def trip_init():
 			userdata["latitude"]=latitude
 			userdata["longitude"]=longitude
 			headers = {'Accept': 'text/plain'}
-			link = 'https://api.expertise97.hasura-app.io/api/insert_trip?user_id='+userdata["user_id"]+
-																	"&vehicle_id="+userdata["vehicle_id"]+
-																	"&latitude="+userdata["latitude"]+
-																	"&longitude="+userdata["longitude"]+
-																	"&timestamp="+userdata["timestamp"]
+			link = """https://api.expertise97.hasura-app.io/api/insert_trip?user_id={str1}&
+																		vehicle_id={str2}&
+																		latitude={str3}&
+																		longitude={str4}&
+																		timestamp={str5}""".format(str1=userdata["user_id"],
+																									str2=userdata["vehicle_id"],
+																									str3=userdata["latitude"],
+																									str4=userdata["longitude"],
+																									str5=userdata["timestamp"])
 			resp = requests.get(link,headers=headers,timeout=10)
 			if resp.status_code==200:
 				print(resp.content)
