@@ -71,6 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$request = json_decode($stream_clean);
 			$first_name = $request->first_name;
 			echo "hi";
+			echo $stream_clean;
 			$obj=json_decode($input_data);
 			echo $obj['form'];
 			$username=$this->input->post('first_name');
