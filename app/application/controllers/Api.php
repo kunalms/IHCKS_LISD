@@ -23,7 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$username=$this->input->post('textinput10');
 			$password=$this->input->post('textinput11');
 			echo ($username);
+			echo("hi");
 			echo ($password);
+			echo("hi");
 			$data['user_name']=$username;
 
 			$data['user_password']=$password;
