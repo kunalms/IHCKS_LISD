@@ -18,7 +18,9 @@
 			$this->db->limit(1);
 			$query=$this->db->get('users');
 			$res= $query->result_array();
-			if(sizeof($res)){
+			print_r($res);
+			/*if(sizeof($res)>0)
+			{
 			$data['sessionId']=$res['user_id'];
 			$data['message']="login successful";
 			echo json_encode($data);
@@ -26,7 +28,7 @@
 			else{
 			$data['message']="login successful";
 			echo json_encode($data);	
-			}
+			}*/
 		}
 
 		function fetch_sliders()
