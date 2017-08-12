@@ -52,14 +52,14 @@
 		function insert_gps_start($data){
 
 			$this->db->insert('trip_start', $data);
-			return  true;
+			$insert_id = $this->db->insert_id();
+			return  $insert_id;
 		}
 
 		function insert_dps_details($data){
 
 			$this->db->insert('trip_details', $data);
-			$insert_id = $this->db->insert_id();
-			return  $insert_id;
+			return true
 		}
 		function fetch_flag_by_id($id){
 			$this->db->where($id);
