@@ -92,12 +92,13 @@ while not comp:
                         GPIO.output(WHITE_LED,GPIO.LOW)
                         print("Card Accepted")
                         x=os.popen("node card2.js").read().split('\n')
-                        trip_id=0;
+                        trip_id=-1;
                         while x[0] != "card removed":
                                 print("Sending location")
                                 if(not istrip):
                                         init_time,trip_id=trip_init()
-                                        istrip = True
+                                        if trip_id!=-1:
+                                                istrip = True
                                 else:
                                         trip_cont(init_time,istrip,trip_id)
                                 x=os.popen("node card2.js").read().split('\n')
