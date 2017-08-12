@@ -64,11 +64,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function insert_user(){
-			$username=$this->input->get('username');
+			$username=$this->input->post('first_name');
+			$lastname=$this->input->post('last_name');
+			$password=$this->input->post('password');
+			$confpass=$this->input->post('confirm_password');
+			$email=$this->input->post('email_id');
+			$contact=$this->input->post('contact_no');
+
+			if($confpass==$password){
+			$info['user_name']=$username;
+			$info['user_lastname']=$lastname;
+			$info['user_password']=$password;
+			$info['user_email']=$email;
+			$info['user_mobile']=$contact;
 			
-			echo $username;
-		
-			echo "api call input_user";
+			$res=$this->lisd_model->insert_user($info);
+			if($res==true){
+				$desc['description']="registration successful";
+				$ret['message']=$desc;
+				echo json_encode($ret);
+			}
+			}
+			else{
+				$desc['description']="registration unsuccessful";
+					$ret['message']=$desc;
+					echo json_encode($ret);
+			}
 		}
 	}
 
