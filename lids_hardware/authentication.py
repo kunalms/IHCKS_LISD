@@ -17,7 +17,7 @@ GPIO.setup(RELAY,GPIO.OUT)
 GPIO.setup(WHITE_LED,GPIO.OUT)
 GPIO.setup(GREEN_LED,GPIO.OUT)
 comp=False
-vehicle_id="109"
+vehicle_id="101"
 while not comp:
         x=os.popen("node card2.js").read().split('\n')
         if x[0] == "card removed":
