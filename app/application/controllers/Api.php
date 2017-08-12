@@ -10,10 +10,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function __construct()
 		{
 			parent::__construct();
-			$this->load->model('lisd_model');
+
 		}
 
 		function index(){
+			$this->load->model('lisd_model');
 			echo "api call";
 		}
 
@@ -31,8 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$user=$this->input->get('_USER_NAME');
 			$res=$this->lisd_model->fetch_user_vehicle($user);
 			
-
-
 		}
 
 		function insert_user(){
