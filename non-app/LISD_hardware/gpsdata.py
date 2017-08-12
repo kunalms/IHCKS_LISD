@@ -8,4 +8,4 @@ def loc():
 		z+=1
 		if sentence.find('GGA') > 0:
 			data = pynmea2.parse(sentence)
- 			return([str(data.latitude),str(data.longitude)])
+			return([str(data.latitude),str(data.longitude)])

@@ -17,9 +17,9 @@ def trip_cont(start_time,flag,tripid):
 			userdata["tripid"]=tripid
 			userdata["uuid"]="109"
 			userdata["vehicleid"]="104"
-			userdata["timestampMs"]=cur_time
-			userdata["latitudeE7"]=latitude
-			userdata["longitudeE7"]=longitude
+			userdata["timestamp"]=cur_time
+			userdata["latitude"]=latitude
+			userdata["longitude"]=longitude
 			userdata["istriplive"]=flag;
 			data=json.dumps(userdata)
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
