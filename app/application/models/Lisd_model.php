@@ -22,7 +22,7 @@
 		function fetch_user_vehicles($data)
 		{
 			echo $data['user_id'];
-			$this->db->from('user_vehicle')
+			$this->db->from('user_vehicle');
 			$this->db->where($data);
 			$this->db->join('vehicle', 'user_vehicle.vehicle_id = vehicle.vehicle_id');
 			$query=$this->db->get();
