@@ -10,14 +10,13 @@ def trip_init():
 	while not comp:
 		location=loc()
 		dt=datetime.now()
-		cur_time=int(time.mktime(dt.timetuple()))
 		latitude=(location[0])
 		longitude=(location[1])
 		if latitude != "0.0" and longitude != "0.0":
 			userdata={}
 			userdata["user_id"]="109"
 			userdata["vehicle_id"]="104"
-			userdata["timestamp"]=cur_time
+			userdata["timestamp"]=dt
 			userdata["latitude"]=latitude
 			userdata["longitude"]=longitude
 			link = """https://api.expertise97.hasura-app.io/api/insert_trip?user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}""".format(str1=userdata["user_id"],
