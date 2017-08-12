@@ -30,7 +30,6 @@ def trip_cont(start_time,flag,tripid):
 																											str4=userdata["longitude"],
 																											str5=userdata["timestamp"],
 																											str6=userdata["is_trip_live"])
-					print(link)
 					resp = requests.get(link,timeout=10)
 					comp=True
 			if flag:
