@@ -15,14 +15,14 @@ def trip_init():
 		longitude=(location[1])
 		if latitude != "0.0" and longitude != "0.0":
 			userdata={}
-			userdata["uuid"]="109"
-			userdata["vehicleid"]="104"
+			userdata["user_id"]="109"
+			userdata["vehicle_id"]="104"
 			userdata["timestamp"]=cur_time
 			userdata["latitude"]=latitude
 			userdata["longitude"]=longitude
 			data=json.dumps(userdata)
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-			resp = requests.post('https://api.expertise97.hasura-app.io/api/insert_start_trip', data=data,headers=headers,timeout=10)
+			resp = requests.post('https://api.expertise97.hasura-app.io/api/insert_trip', data=data,headers=headers,timeout=10)
 			if resp.status_code==200:
 				getdata=json.loads(resp.content.decode('utf-8'))
 				trip_id=getdata["tripid"]

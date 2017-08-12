@@ -23,7 +23,7 @@ def trip_cont(start_time,flag,tripid):
 			userdata["istriplive"]=flag;
 			data=json.dumps(userdata)
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-			resp = requests.post('http://lidsmysqldb.cloudapp.net/sih2017/lids-api/updateTrip.php', data=data,headers=headers,timeout=10)
+			resp = requests.post('https://api.expertise97.hasura-app.io/api/update_trip', data=data,headers=headers,timeout=10)
 		comp=True
 	if flag:
 		return cur_time-start_time;
