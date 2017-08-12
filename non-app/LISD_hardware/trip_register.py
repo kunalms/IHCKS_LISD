@@ -29,6 +29,7 @@ def trip_init():
 																									str3=userdata["latitude"],
 																									str4=userdata["longitude"],
 																									str5=userdata["timestamp"])
+			print(link)
 			resp = requests.get(link,timeout=10)
 			if resp.status_code==200:
 				print(resp.content)
