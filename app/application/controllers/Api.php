@@ -122,7 +122,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$ret['message']=$desc;
 				echo json_encode($ret);
 			}
-			}
 			else{
 				$desc['description']="registration unsuccessful";
 					$ret['message']=$desc;
@@ -149,7 +148,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($res>0){
 				$ret['trip_id']=$res;
 				echo json_encode($ret);
-			}
 			}
 			else{
 				$desc['description']="insert failed";
