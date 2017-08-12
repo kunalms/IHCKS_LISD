@@ -49,12 +49,11 @@
 			return $query->row();
 		}
 
-		function insert_gps_start(){
+		function insert_gps_start($data){
 
 			$this->db->insert('trip_start', $data);
 			$insert_id = $this->db->insert_id();
-			echo $insert_id;
-   			//return  $insert_id;
+			return  $insert_id;
 		}
 		
 	}
