@@ -19,12 +19,12 @@
 			return $query->result_array();
 		}
 
-		function validate_user($username)
+		function fetch_by_username($username)
 		{
 			$this->db->where($username);
 			$this->db->limit(1);
 			$query=$this->db->get('users');
-			return $query->result_array();
+			return $query->row();
 		}
 
 		function add_slider($data)
