@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'postgres.hasura',
+	'hostname' => 'asdf',
 	'username' => 'admin',
 	'password' => 'tirwaganj-fund-magneto-monocoque',
 	'database' => 'hasuradb',
