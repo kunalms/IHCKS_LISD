@@ -11,11 +11,22 @@
 			parent::__construct();
 		}
 
-		function insert_user()
+		function validate_user($data)
 		{
-			$this->db->where('status',1);
-			$query=$this->db->get('sliders');
-			return $query->result_array();
+			$this->db->select('user_id')
+			$this->db->where($data);
+			$this->db->limit(1);
+			$query=$this->db->get('user_vehicle');
+			$res= $query->result_array();
+			if(sizeof($res)){
+			$data['sessionId']=$res['user_id'];
+			$data['message']="login successful";
+			echo json_encode($data);
+			}
+			else{
+			$data['message']="login successful";
+			echo json_encode($data);	
+			}
 		}
 
 		function fetch_sliders()
