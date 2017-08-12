@@ -30,13 +30,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				foreach ($res as $item ) {
 					$ret['sessionId']=$item['user_id'];
-					$ret['message']="login successful";
+					$desc['description']="login successful";
+					$ret['message']=$desc;
 					echo json_encode($ret);
 				}
 			
 			}
 			else{
-			$ret['message']="login unsuccessful";
+			$desc['description']="login unsuccessful";
+			$ret['message']=$desc;
 			echo json_encode($ret);	
 			}
 
@@ -44,9 +46,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function fetch_user_vehicle(){
+
 			$user=$this->input->get('_USER_NAME');
-			$id=
-			
+			$data['user_name']=$user;
+
+			$res=$this->lisd_model->fetch_by_username($data);
+			echo $res->user_id; 
+			$id=$res->user_id;
+
 		}
 
 		function insert_user(){
