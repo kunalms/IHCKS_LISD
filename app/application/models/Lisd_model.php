@@ -21,7 +21,7 @@
 
 		function fetch_user_vehicles($data)
 		{
-			echo $data['user_id'];
+			$this->db->select('vehicle_id AS `title`, vehicle_type AS `description`, vehicle_pollution_count AS `image`', FALSE);
 			$this->db->from('user_vehicle');
 			$this->db->where($data);
 			$this->db->join('vehicle', 'user_vehicle.vehicle_id = vehicle.vehicle_id');
