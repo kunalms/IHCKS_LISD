@@ -4,7 +4,7 @@ import time
 import json
 from datetime import datetime
 
-def trip_init():
+def trip_init(vehicle_id):
 	comp=False
 	trip_id=0
 	while not comp:
@@ -18,7 +18,7 @@ def trip_init():
 				if latitude != "0.0" and longitude != "0.0":
 					userdata={}
 					userdata["user_id"]="109"
-					userdata["vehicle_id"]="104"
+					userdata["vehicle_id"]=vehicle_id
 					userdata["timestamp"]=dt
 					userdata["latitude"]=latitude
 					userdata["longitude"]=longitude

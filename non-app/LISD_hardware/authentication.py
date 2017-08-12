@@ -90,11 +90,11 @@ while not comp:
                         while x[0] != "card removed":
                                 print("Sending location")
                                 if(not istrip):
-                                        init_time,trip_id=trip_init()
+                                        init_time,trip_id=trip_init(vehicle_id)
                                         if trip_id!=-1:
                                                 istrip = True
                                 else:
-                                        trip_cont(init_time,istrip,trip_id)
+                                        trip_cont(init_time,istrip,trip_id,vehicle_id)
                                 x=os.popen("node card2.js").read().split('\n')
                                 #poll_count(x[1],100)
                                 if(theft):

@@ -4,7 +4,7 @@ import time
 import json
 from datetime import datetime
 
-def trip_cont(start_time,flag,tripid):
+def trip_cont(start_time,flag,tripid,vehicle_id):
 	comp=False
 	while not comp:
 		try:
@@ -18,7 +18,7 @@ def trip_cont(start_time,flag,tripid):
 					userdata={}
 					userdata["trip_id"]=tripid
 					userdata["user_id"]="109"
-					userdata["vehicle_id"]="104"
+					userdata["vehicle_id"]=vehicle_id
 					userdata["timestamp"]=dt
 					userdata["latitude"]=latitude
 					userdata["longitude"]=longitude
