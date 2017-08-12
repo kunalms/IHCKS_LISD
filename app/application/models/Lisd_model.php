@@ -13,7 +13,7 @@
 
 		function validate_user($data)
 		{
-			$this->db->select('user_id')
+			$this->db->select('user_id');
 			$this->db->where($data);
 			$this->db->limit(1);
 			$query=$this->db->get('user_vehicle');
