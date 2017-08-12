@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$res=$this->lisd_model->fetch_by_username($data);
 			echo $res->user_id; 
 			$id=$res->user_id;
-			$data['user_id']=$id
+			$data['user_id']=$id;
 			$vehicles=$this->fetch_user_vehicles($data);
 
 		}
