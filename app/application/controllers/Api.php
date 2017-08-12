@@ -36,15 +36,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			}
 			else{
-			$ret['message']="login successful";
+			$ret['message']="login unsuccessful";
 			echo json_encode($ret);	
 			}
 
 		}
 
+
 		function fetch_user_vehicle(){
 			$user=$this->input->get('_USER_NAME');
-			$res=$this->lisd_model->fetch_user_vehicle($user);
+			$id=
 			
 		}
 

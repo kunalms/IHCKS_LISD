@@ -19,9 +19,11 @@
 			return $query->result_array();
 		}
 
-		function fetch_sliders()
+		function validate_user($username)
 		{
-			$query=$this->db->get('sliders');
+			$this->db->where($username);
+			$this->db->limit(1);
+			$query=$this->db->get('users');
 			return $query->result_array();
 		}
 
