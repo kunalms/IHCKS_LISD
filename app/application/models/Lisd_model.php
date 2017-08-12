@@ -19,6 +19,12 @@
 			return $query->result_array();
 		}
 
+		function fetch_user_vehicles($data)
+		{
+			$this->db->where($data);
+			$query=$this->db->get('user_vehicle');
+			return $query->result_array();
+		}
 
 		function fetch_by_username($username)
 		{
