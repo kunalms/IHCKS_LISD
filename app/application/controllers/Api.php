@@ -209,8 +209,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			// define options
 			$optArray = array(
-			    CURLOPT_URL => 'http://api.commutegreener.com/api/co2/emissions?startLat='.$ret['startlat'].'&endLat='.$ret['startlong'].'&endLng='.$ret['endlat'].'&endLng='.$ret['endlong'].'format=json',
-			    CURLOPT_RETURNTRANSFER => true
+			    'CURLOPT_URL'=>"http://api.commutegreener.com/api/co2/emissions?startLat=".$ret['startlat']."&endLat=".$ret['startlong']."&endLng=".$ret['endlat']."&endLng=".$ret['endlong']."format=json",
+			    'CURLOPT_RETURNTRANSFER'=>true
 			);
 
 			echo $optArray['CURLOPT_URL'];
