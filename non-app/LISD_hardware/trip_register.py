@@ -10,6 +10,7 @@ def trip_init():
 	while not comp:
 		location=loc()
 		dt=datetime.now()
+		cur_time=int(time.mktime(dt.timetuple()))
 		latitude=(location[0])
 		longitude=(location[1])
 		if latitude != "0.0" and longitude != "0.0":
