@@ -135,13 +135,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$user_id=$this->input->get('user_id');
 			$vehicle_id=$this->input->get('vehicle_id');
-			$latittude=$this->input->get('latittude');
+			$latitude=$this->input->get('latitude');
 			$longitude=$this->input->get('longitude');
 			$timestamp=$this->input->get('timestamp');
 
 			$info['user_id']=$user_id;
 			$info['vehicle_id']=$vehicle_id;
-			$info['latittude']=$latittude;
+			$info['latitude']=$latitude;
 			$info['longitude']=$longitude;
 			$info['timestamp']=$timestamp;
 
