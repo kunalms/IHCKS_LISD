@@ -77,8 +77,9 @@
 			$ret['startlat']=$row->latitude;
 			$ret['startlong']=$row->longitude;
 			$data['is_trip_live']='f';
+
+			print_r($data);
 			$this->db->where($data);
-			$this->db->limit(1);
 			$query1=$this->db->get('trip_details');
 			$row1=$query1->row();
 			$ret['endlat']=$row1->latitude;
