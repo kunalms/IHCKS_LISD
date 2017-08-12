@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function index(){
-			
+			ini_set('memory_limit', '1024M');
 			echo "api call";
 		}
 
@@ -132,6 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function insert_start_trip(){
+			
 			$user_id=$this->input->get('user_id');
 			$vehicle_id=$this->input->get('vehicle_id');
 			$latittude=$this->input->get('latittude');
