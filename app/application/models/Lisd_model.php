@@ -56,10 +56,10 @@
 			return  $insert_id;
 		}
 
-		function insert_dps_details($data){
+		function insert_gps_details($data){
 
 			$this->db->insert('trip_details', $data);
-			return true
+			return true;
 		}
 		function fetch_flag_by_id($id){
 			$this->db->where($id);
