@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$info['longitude']=$longitude;
 			$info['timestamp']=$timestamp;
 
-			$res=$this->insert_gps_start($info);
+			$res=$this->lisd_model->insert_gps_start($info);
 			if($res>0){
 				$ret['trip_id']=$res;
 				echo json_encode($ret);
