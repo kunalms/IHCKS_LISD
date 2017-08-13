@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$contact=$item->contact_no;
 			echo  ($email);
 			}
-			
+			/*
 			if($confpass==$password){
 
 			$info['user_name']=$username;
