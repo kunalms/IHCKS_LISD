@@ -97,7 +97,7 @@
 
 		function fetch_gps_user($data)
 		{
-			$this->db->select('latitude','longitude','is_trip_live as pin_image');
+			$this->db->select('latitude','longitude');
 			$this->db->from('trip_details');
 			$this->db->where($data);
 			$query=$this->db->get();
