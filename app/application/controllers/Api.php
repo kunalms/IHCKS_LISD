@@ -114,47 +114,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 
-		/*function insert_vehicle(){
-			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
-			$request = json_decode($stream_clean);
-			$json=json_decode($stream_clean);
-			//print_r($json);
-			$form=$json->form;
-			$array = json_decode(json_encode($form), True);
-			//print_r($array);
-			$username=$array['first_name'];
-			$lastname=$array['last_name'];
-			$password=$array['password'];
-			$confpass=$array['confirm_password'];
-			$email=$array['email_id'];
-			$contact=$array['contact_no'];
-			if($confpass==$password){
-
-			$info['user_name']=$username;
-			$info['user_lastname']=$lastname;
-			$info['user_password']=$password;
-			$info['user_email']=$email;
-			$info['user_mobile']=$contact;
-			
-			$res=$this->lisd_model->insert_user($info);
-			}
-			if($res==true){
-				$desc['description']="registration successful";
-				$ret['message']=$desc;
-				echo json_encode($ret);
-			}
-			else
-			{
-				$desc['description']="registration unsuccessful";
-				$ret['message']=$desc;
-				echo json_encode($ret);
-			}
-		}*/
-
 
 
 		function insert_vehicle(){
-			//help
 			$vehicle_type=$this->input->get('vehicle_type');
 			$vehicle_count=$this->input->get('vehicle_count');
 			$immobilize=0;
