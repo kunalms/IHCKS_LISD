@@ -97,8 +97,8 @@ while not comp:
                                         trip_cont(init_time,istrip,trip_id,vehicle_id)
                                 x=os.popen("node card2.js").read().split('\n')
                                 #poll_count(x[1],100)
-                                if not theft:
-                                        theft=stop_command(vehicle_id)
+                                theft=stop_command(vehicle_id)
+                                if theft:
                                         break
                         trip_time=trip_cont(init_time,False,trip_id,vehicle_id)
                 else:
