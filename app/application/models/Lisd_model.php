@@ -97,12 +97,14 @@
 
 		function fetch_gps_user($data)
 		{
-			$this->db->select('latitude,longitude');
+			$this->db->select('latitude,longitude,trip_is_live as pic_image');
 			$this->db->from('trip_details');
 			$this->db->where($data);
 			$query=$this->db->get();
 			return $query->result_array();
 		}
+
+
 	}
 
  ?>
