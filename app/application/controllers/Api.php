@@ -262,7 +262,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 
+		function toogle_button(){
 
+			$vehicle_id=$this->input->get('vehicle_id');
+			$value=$this->input->get('value');
+
+			if($value==0){
+				$info['immobilize']='true';
+			}
+			else{
+			$info['immobilize']='false';	
+			}
+				$info['vehicle_id']=;
+			$out['status'] = $this->lisd_model->toggle_button($vehicle_id,$info['immobilize']); 
+			echo json_encode($out);
+
+		}
 
 
 	}
