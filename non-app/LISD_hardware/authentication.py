@@ -16,9 +16,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(RELAY,GPIO.OUT)
 GPIO.setup(WHITE_LED,GPIO.OUT)
 GPIO.setup(GREEN_LED,GPIO.OUT)
-comp=False
+
+theft=False
 vehicle_id="104"
-while not comp:
+while not theft:
         x=os.popen("node card2.js").read().split('\n')
         if x[0] == "card removed":
                 GPIO.output(RELAY,GPIO.LOW)
@@ -80,7 +81,6 @@ while not comp:
                                 print("Card Deleted")
                 elif per=="access":
                         istrip=False;
-                        theft=False;
                         init_time=0;
                         GPIO.output(RELAY,GPIO.HIGH)
                         GPIO.output(WHITE_LED,GPIO.LOW)
@@ -99,6 +99,7 @@ while not comp:
                                 #poll_count(x[1],100)
                                 theft=stop_command(vehicle_id)
                                 if theft:
+                                        print("Vehicle stolen")
                                         break
                         trip_time=trip_cont(init_time,False,trip_id,vehicle_id)
                 else:
@@ -106,9 +107,9 @@ while not comp:
  #   except:
 #       GPIO.cleanup()
 #       comp=True
-for i in range(10):
-        GPIO.output(RELAY,GPIO.LOW)
+while True:
+        GPIO.output(GREEN_LED,GPIO.LOW)
         GPIO.output(WHITE_LED,GPIO.HIGH)
         sleep(2)
-        GPIO.output(RELAY,GPIO.HIGH)
+        GPIO.output(GREEN_LED,GPIO.HIGH)
         GPIO.output(WHITE_LED,GPIO.LOW)
