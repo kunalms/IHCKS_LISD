@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			print_r($json);
 			$form=$json->form;
 			$array = json_decode(json_encode($form), True);
-			print_r($array)
+			print_r($array);
 			/*
 			if($confpass==$password){
 
