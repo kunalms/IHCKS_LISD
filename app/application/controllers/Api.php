@@ -250,7 +250,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$locations=$this->lisd_model->fetch_gps_user($inp);
 			$out=array();
 			foreach ($locations as $item ) {
-				echo($item);
+				print_r($item);
 			}
 			echo json_encode($out);
 
