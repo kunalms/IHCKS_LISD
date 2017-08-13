@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 
-		function insert_vehicle(){
+		/*function insert_vehicle(){
 			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
 			$json=json_decode($stream_clean);
@@ -149,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$ret['message']=$desc;
 				echo json_encode($ret);
 			}
-		}
+		}*/
 
 
 
