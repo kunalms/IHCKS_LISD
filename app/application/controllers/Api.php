@@ -81,11 +81,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$request = json_decode($stream_clean);
 			//echo $request;
 			//$form=json_decode((string)$request);
-			echo $stream_clean;
+			//echo $stream_clean;
 			//$obj=json_decode($input_data);
 			//print_r( $form);
 			$json=json_decode($stream_clean);
 			print_r($json);
+			$form=$json->form;
+			print_r($form);
 			/*
 			$username=$this->input->get('first_name');
 			$lastname=$this->input->get('last_name');
