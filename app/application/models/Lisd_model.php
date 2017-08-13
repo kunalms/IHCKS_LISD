@@ -40,7 +40,7 @@
 			return $query->result_array();
 		}
 
-		
+
 
 
 		function fetch_by_username($username)
@@ -71,7 +71,7 @@
 		}
 
 		function set_flag_by_id($id){
-			$data=array('immobilize'=>f);
+			$data=array('immobilize'=>"true");
 			$this->db->where('id','some_id');
 			$this->db->update('vehicle',$data);
 			return true;
