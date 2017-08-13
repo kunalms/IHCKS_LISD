@@ -124,11 +124,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$form=$json->form;
 			$array = json_decode(json_encode($form), True);
 			//print_r($array);
-			$username=$array['vehicle_type'];
-			$lastname=$array['vehicle_count'];
+			$vehicle_type=$array['vehicle_type'];
+			$vehicle_count=$array['vehicle_count'];
 			
-			$info['vehicle_type']=$username;
-			$info['vehicle_pollution_count']=$lastname;
+			$info['vehicle_type']=$vehicle_type;
+			$info['vehicle_pollution_count']=$vehicle_count;
+			$info['immobilize']='false';
 			
 			$res=$this->lisd_model->insert_vehicle($info);
 			if($res==true){
@@ -260,6 +261,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo json_encode($out);
 
 		}
+
+		function 
 
 
 
