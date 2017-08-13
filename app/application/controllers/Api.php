@@ -207,24 +207,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$ret=$this->lisd_model->get_latlong($info);
 
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, "http://api.commutegreener.com/api/co2/emissions?startLat=".$ret['startlat']."&startLng=".$ret['startlong']."&endLat=".$ret['endlat']."&endLng=".$ret['endlong']."&format=json");
 			// define options
-			$optArray = array(
-			    'CURLOPT_URL'=>"http://api.commutegreener.com/api/co2/emissions?startLat=".$ret['startlat']."&startLng=".$ret['startlong']."&endLat=".$ret['endlat']."&endLng=".$ret['endlong']."&format=json",
-			    'CURLOPT_RETURNTRANSFER'=>true
-			);
+			
 
-			echo $optArray['CURLOPT_URL'];
 			// apply those options
-			curl_setopt_array($ch, $optArray);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 			// execute request and get response
-			$result = curl_exec($ch);
+			$output = curl_exec($ch); 
 			// also get the error and response code
-			$errors = curl_error($ch);
-			$response = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
-			var_dump($errors);
-			var_dump($response);
+			echo($output);
 		}
 
 				
