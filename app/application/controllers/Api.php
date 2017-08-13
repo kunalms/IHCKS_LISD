@@ -241,7 +241,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo($output);
 		}
 
-				
+		
+		function fetch_gps_user_id(){
+
+			$user=$this->input->get('user_id');
+			
+			$inp['user_id']=$user;
+			$locations=$this->lisd_model->fetch_gps_user($inp);
+			echo json_encode($locations);
+
+		}
 
 	}
 

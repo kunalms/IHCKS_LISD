@@ -93,7 +93,15 @@
 			$ret['endlat']=$row1->latitude;
 			$ret['endlong']=$row1->longitude;
 			return $ret;	
+		}
 
+		function fetch_gps_user($data)
+		{
+			$this->db->select('latitude','longitude')
+			$this->db->from('trip_details');
+			$this->db->where($data);
+			$query=$this->db->get();
+			return $query->result_array();
 		}
 	}
 
