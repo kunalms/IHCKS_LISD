@@ -154,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function insert_vehicle(){
-
+			//help
 			$vehicle_type=$this->input->get('vehicle_type');
 			$vehicle_count=$this->input->get('vehicle_count');
 			$immobilize=0;
