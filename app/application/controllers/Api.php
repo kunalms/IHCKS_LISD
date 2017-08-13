@@ -117,24 +117,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function insert_vehicle(){
-			$vehicle_type=$this->input->get('vehicle_type');
-			$vehicle_count=$this->input->get('vehicle_count');
-			$immobilize=0;
-
-			$info['vehicle_type']=$vehicle_type;
-			$info['vehicle_count']=$vehicle_count;
-			$info['immobilize']=$immobilize;
-
-			$res=$this->insert_vehicle($info);
+			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
+			$request = json_decode($stream_clean);
+			$json=json_decode($stream_clean);
+			//print_r($json);
+			$form=$json->form;
+			$array = json_decode(json_encode($form), True);
+			//print_r($array);
+			$username=$array['vehicle_type'];
+			$lastname=$array['vehicle_count'];
+			
+			$info['vehicle_type']=$username;
+			$info['vehicle_pollution_count']=$lastname;
+			
+			$res=$this->lisd_model->insert_vehicle($info);
 			if($res==true){
 				$desc['description']="registration successful";
 				$ret['message']=$desc;
 				echo json_encode($ret);
 			}
-			else{
+			else
+			{
 				$desc['description']="registration unsuccessful";
-					$ret['message']=$desc;
-					echo json_encode($ret);
+				$ret['message']=$desc;
+				echo json_encode($ret);
 			}
 
 		}
