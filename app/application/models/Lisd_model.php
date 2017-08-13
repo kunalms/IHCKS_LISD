@@ -72,7 +72,7 @@
 
 		function set_flag_by_id($id){
 			$data=array('immobilize'=>"true");
-			$this->db->where('id','some_id');
+			$this->db->where($id);
 			$this->db->update('vehicle',$data);
 			return true;
 		}		
