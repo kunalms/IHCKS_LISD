@@ -105,7 +105,7 @@
 		}
 
 		function toggle_button($vehicle_id,$value){
-			$info['immobilize']=$value
+			$info['immobilize']=$value;
 			$this->db->where('vehicle_id',$data['vehicle_id']);
 			$this->db->update('vehicle',$info);
 			return true;
