@@ -78,14 +78,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function insert_user(){
 			echo "hi";
-			/*$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
+			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
-			echo $request;
+			//echo $request;
 			//$form=json_decode((string)$request);
 			echo $stream_clean;
 			//$obj=json_decode($input_data);
-			print_r( $form);
-			*/
+			//print_r( $form);
+			/*
 			$username=$this->input->get('first_name');
 			$lastname=$this->input->get('last_name');
 			$password=$this->input->get('password');
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$desc['description']="registration unsuccessful";
 					$ret['message']=$desc;
 					echo json_encode($ret);
-			}
+			}*/
 		}
 
 
@@ -256,6 +256,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo json_encode($out);
 
 		}
+
+
 
 	}
 
