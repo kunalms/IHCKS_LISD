@@ -114,11 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 
-<<<<<<< HEAD
-		function insert_vehicle(){
-=======
 		/*function insert_vehicle(){
->>>>>>> refs/remotes/origin/master
 			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
 			$json=json_decode($stream_clean);
@@ -153,20 +149,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$ret['message']=$desc;
 				echo json_encode($ret);
 			}
-<<<<<<< HEAD
-		}
-=======
 		}*/
->>>>>>> refs/remotes/origin/master
 
 
 
 		function insert_vehicle(){
-<<<<<<< HEAD
-
-=======
 			//help
->>>>>>> refs/remotes/origin/master
 			$vehicle_type=$this->input->get('vehicle_type');
 			$vehicle_count=$this->input->get('vehicle_count');
 			$immobilize=0;
