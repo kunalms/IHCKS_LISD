@@ -273,7 +273,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else{
 			$info['immobilize']='false';	
 			}
-				$info['vehicle_id']=;
 			$out['status'] = $this->lisd_model->toggle_button($vehicle_id,$info['immobilize']); 
 			echo json_encode($out);
 
