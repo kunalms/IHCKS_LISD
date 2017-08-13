@@ -40,6 +40,8 @@
 			return $query->result_array();
 		}
 
+		
+
 
 		function fetch_by_username($username)
 		{
