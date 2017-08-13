@@ -100,7 +100,7 @@ while not comp:
                                 if not theft:
                                         theft=stop_command(vehicle_id)
                                         break
-                        trip_time=trip_cont(init_time,False,trip_id)
+                        trip_time=trip_cont(init_time,False,trip_id,vehicle_id)
                 else:
                         print("Card not registered")
  #   except:
