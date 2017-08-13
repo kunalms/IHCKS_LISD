@@ -89,7 +89,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$form=$json->form;
 			$array = json_decode(json_encode($form), True);
 			print_r($array);
-			/*
+			$username=$array['first_name'];
+			$lastname=$array['last_name'];
+			$password=$array['password'];
+			$confpass=$array['confirm_password'];
+			$email=$array['email_id'];
+			$contact=$array['contact_no'];
 			if($confpass==$password){
 
 			$info['user_name']=$username;
@@ -99,17 +104,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$info['user_mobile']=$contact;
 			
 			$res=$this->lisd_model->insert_user($info);
+			}
 			if($res==true){
 				$desc['description']="registration successful";
 				$ret['message']=$desc;
 				echo json_encode($ret);
 			}
-			}
-			else{
+			else
+			{
 				$desc['description']="registration unsuccessful";
-					$ret['message']=$desc;
-					echo json_encode($ret);
-			}*/
+				$ret['message']=$desc;
+				echo json_encode($ret);
+			}
 		}
 
 
