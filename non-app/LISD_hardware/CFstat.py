@@ -13,7 +13,6 @@ def poll_count(vehicleid,duration):
         poll_data["licenseid"]=vehicleid
         poll_data["startdate"]=time.strftime('%Y-%m-%d')
         data=json.dumps(poll_data)
-        print(data)
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
         resp = requests.post('http://lidsmysqldb.cloudapp.net/sih2017/lids-api/CFinsert.php', data=data,headers=headers,timeout=10)
         if resp.status_code==200:

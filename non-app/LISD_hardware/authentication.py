@@ -16,9 +16,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(RELAY,GPIO.OUT)
 GPIO.setup(WHITE_LED,GPIO.OUT)
 GPIO.setup(GREEN_LED,GPIO.OUT)
-comp=False
-vehicle_id="101"
-while not comp:
+
+theft=False
+vehicle_id="104"
+while not theft:
         x=os.popen("node card2.js").read().split('\n')
         if x[0] == "card removed":
                 GPIO.output(RELAY,GPIO.LOW)
@@ -26,20 +27,14 @@ while not comp:
                 GPIO.output(GREEN_LED,GPIO.LOW)
                 print("Not available")
         else:
-                print("1")
                 db=pw.SqliteDatabase('admin')
-                print("2")
                 db.connect()
-                print("3")
                 cur=db.execute_sql("select * from admin_cards where id='%s'"%x[1])
-                print("4")
                 z=list(cur.fetchall())
-                print("5")
                 try:
                         per=z[0][1]
                 except:
                         per=None
-                print("6")
                 if per=="add":
                         GPIO.output(RELAY,GPIO.LOW)
                         GPIO.output(WHITE_LED,GPIO.HIGH)
@@ -85,34 +80,38 @@ while not comp:
                                 db.execute_sql("delete from admin_cards where id='%s';"%x[1])
                                 print("Card Deleted")
                 elif per=="access":
-                        istrip=True;
-                        theft=False;
+                        istrip=False;
                         init_time=0;
                         GPIO.output(RELAY,GPIO.HIGH)
                         GPIO.output(WHITE_LED,GPIO.LOW)
                         print("Card Accepted")
                         x=os.popen("node card2.js").read().split('\n')
-                        trip_id=0;
+                        trip_id=-1;
                         while x[0] != "card removed":
                                 print("Sending location")
-                                if(istrip):
-                                        init_time,trip_id=trip_init()
+                                if(not istrip):
+                                        init_time,trip_id=trip_init(vehicle_id)
+                                        if trip_id!=-1:
+                                                istrip = True
                                 else:
-                                        trip_cont(init_time,True,trip_id)
+                                        trip_cont(init_time,istrip,trip_id,vehicle_id)
                                 x=os.popen("node card2.js").read().split('\n')
-                                trip_time=trip_cont(init_time,False,trip_id)
-                                poll_count(x[1],100)
-                                if(theft):
-                                        theft=stop_command(vehicle_id)
+                                #poll_count(x[1],100)
+                                theft=stop_command(vehicle_id)
+                                if theft:
+                                        print("Vehicle stolen")
+                                        GPIO.output(RELAY,GPIO.LOW)
                                         break
+                        trip_time=trip_cont(init_time,False,trip_id,vehicle_id)
                 else:
                         print("Card not registered")
  #   except:
-#       GPIO.cleanup()
 #       comp=True
-for i in range(10):
-        GPIO.output(RELAY,GPIO.LOW)
+while True:
+        GPIO.output(GREEN_LED,GPIO.LOW)
         GPIO.output(WHITE_LED,GPIO.HIGH)
         sleep(2)
-        GPIO.output(RELAY,GPIO.HIGH)
+        GPIO.output(GREEN_LED,GPIO.HIGH)
         GPIO.output(WHITE_LED,GPIO.LOW)
+        sleep(2)
+GPIO.cleanup()
