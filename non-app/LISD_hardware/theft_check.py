@@ -12,4 +12,5 @@ def stop_command(vehicle_id):
         getdata=json.loads(resp.content.decode('utf-8'))
         if(getdata["immobilize"]):
             theft=True
+    print(theft)
     return theft
