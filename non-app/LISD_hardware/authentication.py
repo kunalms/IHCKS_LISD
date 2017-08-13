@@ -100,6 +100,7 @@ while not theft:
                                 theft=stop_command(vehicle_id)
                                 if theft:
                                         print("Vehicle stolen")
+                                        GPIO.output(RELAY,GPIO.LOW)
                                         break
                         trip_time=trip_cont(init_time,False,trip_id,vehicle_id)
                 else:
