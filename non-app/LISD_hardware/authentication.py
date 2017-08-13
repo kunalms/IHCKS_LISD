@@ -106,7 +106,6 @@ while not theft:
                         print("Card not registered")
  #   except:
 #       comp=True
-GPIO.cleanup()
 while True:
         GPIO.output(GREEN_LED,GPIO.LOW)
         GPIO.output(WHITE_LED,GPIO.HIGH)
@@ -114,3 +113,4 @@ while True:
         GPIO.output(GREEN_LED,GPIO.HIGH)
         GPIO.output(WHITE_LED,GPIO.LOW)
         sleep(2)
+GPIO.cleanup()
