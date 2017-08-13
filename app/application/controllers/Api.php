@@ -87,15 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$json=json_decode($stream_clean);
 			print_r($json);
 			$form=$json->form;
-			foreach ($form as $item) {
-			$username=$item->first_name;
-			$lastname=$item->last_name;
-			$password=$item->password;
-			$confpass=$item->confirm_password;
-			$email=$item->email_id;
-			$contact=$item->contact_no;
-			echo  ($email);
-			}
+			$array = json_decode(json_encode($form), True);
+			print_r($array)
 			/*
 			if($confpass==$password){
 
