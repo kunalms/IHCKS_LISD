@@ -199,6 +199,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			echo json_encode($ret);
 		}
 
+		function set_flag_by_id(){
+			$vehicle_id=$this->input->get('vehicle_id');
+			$info['vehicle_id']=$vehicle_id;
+			$res=$this->lisd_model->set_flag_by_id($info);
+			$ret['message']=$res;
+			echo json_encode($ret);
+		}
+
 		function carbon_footprint_generate(){
 
 			$ch = curl_init();
@@ -216,7 +224,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 			// execute request and get response
-			$output = curl_exec($ch); 
+			$output = curl_exec($ch);
 			// also get the error and response code
 			curl_close($ch);
 			echo($output);
