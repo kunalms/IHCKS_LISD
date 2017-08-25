@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://api.expertise97.hasura-app.io/';
+$config['base_url'] = 'https://lisd.backslapping80.hasura-app.io/';
 
 /*
 |--------------------------------------------------------------------------
