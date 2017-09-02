@@ -241,14 +241,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		
 		function fetch_gps_user_id(){
-
+			$final=[]
 			$user=$this->input->get('user_id');
 			$inp['user_id']=$user;
 			$trips=$this->lisd_model->fetch_gps_user($inp);
 			foreach ($trips as $trip ) {
 				$trip_details=$this->lisd_model->fetch_trip_by_trip_id($trip);
-				print_r($trip_details);
+				$out=[];
+				foreach($trip_details as $element) {
+					$out['trip_id']=$element['trip_id'];
+					$out['user_id']=$element['user_id'];
+					$out['vehicle_id']=$element['vehicle_id'];
+        			$out['longitude'][] = [$element['longitude']];
+        			$out['latitude'][] = [$element['latitude']];
+        			$out['timestamp'][] = [$element['timestamp']];
+				}
+				array_push($final, $out);
 			}
+			echo json_encode($final);
 
 		}
 
