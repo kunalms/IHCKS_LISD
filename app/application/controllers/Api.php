@@ -20,14 +20,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function validate_user(){
 			var_dump($_POST);
-			$username=$this->input->post('username');
-			$password=$this->input->post('password');
-			echo ($username);
-			echo("hi");
-			echo ($password);
-			echo("hi");
+			$username=$this->input->get('username');
+			$password=$this->input->get('password');
 			$data['user_name']=$username;
-
 			$data['user_password']=$password;
 			$res=$this->lisd_model->validate_user($data);
 
@@ -44,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else{
 			$desc['description']="login unsuccessful";
 			$ret['message']=$desc;
-			echo json_encode($ret);	
+			echo json_encode($ret);
 			}
 
 		}
@@ -77,20 +72,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function insert_user(){
-			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
-			$request = json_decode($stream_clean);
-			$json=json_decode($stream_clean);
-			print_r($json);
-			$form=$json->form;
-			$array = json_decode(json_encode($form), True);
 			//print_r($array);
-			$username=$array['first_name'];
-			$lastname=$array['last_name'];
-			$password=$array['password'];
-			$confpass=$array['confirm_password'];
-			$user_name=$array['user_name'];
-			$email=$array['email_id'];
-			$contact=$array['contact_no'];
+			$username=$this->input->get('first_name');
+			$lastname=$this->input->get('last_name'];
+			$password=$this->input->get('password'];
+			$confpass=$this->input->get('confirm_password'];
+			$user_name=$this->input->get('user_name'];
+			$email=$this->input->get('email_id'];
+			$contact=$this->input->get('contact_no'];
 			if($confpass==$password){
 			$info['user_name']=$user_name;
 			$info['user_firstname']=$username;
@@ -118,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function insert_vehicle(){
-			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
+			/*$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
 			$json=json_decode($stream_clean);
 			//print_r($json);
@@ -126,7 +115,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$array = json_decode(json_encode($form), True);
 			//print_r($array);
 			$vehicle_type=$array['vehicle_type'];
-			$vehicle_count=$array['vehicle_count'];
+			$vehicle_count=$array['vehicle_count'];*/
+
+			$vehicle_type=$this->get('vehicle_type');
+			$vehicle_count=$this->get('vehicle_count')
 			
 			$info['vehicle_type']=$vehicle_type;
 			$info['vehicle_pollution_count']=$vehicle_count;
