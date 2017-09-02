@@ -271,6 +271,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 
+		function add_user_vehicle(){
+			$vehicle_id=$this->input->get('vehicle_id');
+			$user_id=$this->input->get('user_id');
+
+			$data['vehicle_id']=$vehicle_id;
+			$data['user_id']=$user_id;
+
+			$res=$this->lisd_model->add_user_vehicle($data);
+			if($res==true){
+				$desc['description']="registration successful";
+				$ret['message']=$desc;
+				echo json_encode($ret);
+			}
+			else
+			{
+				$desc['description']="registration unsuccessful";
+				$ret['message']=$desc;
+				echo json_encode($ret);
+			}
+		}
+
 
 	}
 

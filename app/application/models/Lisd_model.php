@@ -111,6 +111,11 @@
 			return true;
 		}
 
+		function add_user_vehicle($data)
+		{
+			$this->db->insert('user_vehicle', $data);
+			return true;
+		}
 	}
 
  ?>
