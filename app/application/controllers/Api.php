@@ -141,7 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		function insert_trip(){
-
+			//reading data
 			$user_id=$this->input->get('user_id');
 			$vehicle_id=$this->input->get('vehicle_id');
 			$latitude=$this->input->get('latitude');
