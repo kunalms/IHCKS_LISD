@@ -117,8 +117,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$vehicle_type=$array['vehicle_type'];
 			$vehicle_count=$array['vehicle_count'];*/
 
-			$vehicle_type=$this->get('vehicle_type');
-			$vehicle_count=$this->get('vehicle_count');
+			$vehicle_type=$this->input->get('vehicle_type');
+			$vehicle_count=$this->input->get('vehicle_count');
 			
 			$info['vehicle_type']=$vehicle_type;
 			$info['vehicle_pollution_count']=$vehicle_count;
