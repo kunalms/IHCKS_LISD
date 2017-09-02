@@ -22,10 +22,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$username=$this->input->post('username');
 			$password=$this->input->post('password');
-			//echo ($username);
-			//echo("hi");
-			//echo ($password);
-			//echo("hi");
+			echo ($username);
+			echo("hi");
+			echo ($password);
+			echo("hi");
 			$data['user_name']=$username;
 
 			$data['user_password']=$password;
@@ -78,7 +78,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function insert_user(){
 			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
-			echo $stream_clean;
 			$request = json_decode($stream_clean);
 			$json=json_decode($stream_clean);
 			print_r($json);
