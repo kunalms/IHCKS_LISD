@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
 			$request = json_decode($stream_clean);
 			$json=json_decode($stream_clean);
-			//print_r($json);
+			print_r($json);
 			$form=$json->form;
 			$array = json_decode(json_encode($form), True);
 			//print_r($array);
