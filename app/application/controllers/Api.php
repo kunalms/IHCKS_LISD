@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$lastname=$array['last_name'];
 			$password=$array['password'];
 			$confpass=$array['confirm_password'];
-			$user_name=$array['user_name']
+			$user_name=$array['user_name'];
 			$email=$array['email_id'];
 			$contact=$array['contact_no'];
 			if($confpass==$password){
