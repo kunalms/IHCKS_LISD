@@ -241,7 +241,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		
 		function fetch_gps_user_id(){
-			$final=[]
+			$final=[];
 			$user=$this->input->get('user_id');
 			$inp['user_id']=$user;
 			$trips=$this->lisd_model->fetch_gps_user($inp);
