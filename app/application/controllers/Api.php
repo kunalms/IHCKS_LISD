@@ -252,9 +252,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$out['trip_id']=$element['trip_id'];
 					$out['user_id']=$element['user_id'];
 					$out['vehicle_id']=$element['vehicle_id'];
-        			$out['longitude'][] = [$element['longitude']];
-        			$out['latitude'][] = [$element['latitude']];
-        			$out['timestamp'][] = [$element['timestamp']];
+        			$out['longitude'][] = $element['longitude'];
+        			$out['latitude'][] = $element['latitude'];
+        			$out['timestamp'][] = $element['timestamp'];
 				}
 				array_push($final, $out);
 			}
