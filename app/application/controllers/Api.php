@@ -243,14 +243,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function fetch_gps_user_id(){
 
 			$user=$this->input->get('user_id');
-			
 			$inp['user_id']=$user;
 			$locations=$this->lisd_model->fetch_gps_user($inp);
 			echo  json_encode($locations);
-			foreach ($locations as $key ) {
-				echo "<br>";
-				echo  $key['trip_id'];
-			}
+
 		}
 
 		function toogle_button(){
