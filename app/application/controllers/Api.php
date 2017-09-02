@@ -88,15 +88,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$lastname=$array['last_name'];
 			$password=$array['password'];
 			$confpass=$array['confirm_password'];
+			$user_name=$array['user_name']
 			$email=$array['email_id'];
 			$contact=$array['contact_no'];
 			if($confpass==$password){
-
-			$info['user_name']=$username;
+			$info['user_name']=$user_name;
+			$info['user_firstname']=$username;
 			$info['user_lastname']=$lastname;
 			$info['user_password']=$password;
 			$info['user_email']=$email;
-			$info['user_mobile']=$contact;
+			$info['user_contact']=$contact;
 			
 			$res=$this->lisd_model->insert_user($info);
 			}
