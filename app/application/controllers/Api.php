@@ -247,10 +247,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$inp['user_id']=$user;
 			$locations=$this->lisd_model->fetch_gps_user($inp);
 			$out=array();
-			foreach ($locations as $item ) {
+			print_r($out);
+			/*foreach ($locations as $item ) {
 				$item['pic_image']='https://www.kinetise.com/xml/assets/pin.png';
 				array_push($out,$item);
-			}
+			}*/
 			echo json_encode($out);
 
 		}
