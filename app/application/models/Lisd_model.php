@@ -65,9 +65,7 @@
 		}
 		function fetch_flag_by_id($id){
 			$this->db->where($id);
-			$this->db->limit(1);
 			$query=$this->db->get('vehicle');
-			print_r($query->row());
 			return $query->row();
 		}
 
