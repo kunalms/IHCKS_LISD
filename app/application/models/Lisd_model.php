@@ -96,9 +96,8 @@
 
 		function fetch_gps_user($data)
 		{
-			$this->db->from('trip_details');
 			$this->db->where($data);
-			$query=$this->db->get();
+			$query=$this->db->get('trip_details');
 			return $query->result_array();
 		}
 
