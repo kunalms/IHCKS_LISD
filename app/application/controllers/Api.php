@@ -18,17 +18,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function validate_user(){
+			print_r($_POST);
+			//$username=$_POST["username"];
+			//$password=$_POST["password"];
+			//echo ($username);
+			//echo("hi");
+			//echo ($password);
+			//echo("hi");
+			//$data['user_name']=$username;
 
-			$username=$_POST["username"];
-			$password=$_POST["password"];
-			echo ($username);
-			echo("hi");
-			echo ($password);
-			echo("hi");
-			$data['user_name']=$username;
-
-			$data['user_password']=$password;
-			$res=$this->lisd_model->validate_user($data);
+			//$data['user_password']=$password;
+			//$res=$this->lisd_model->validate_user($data);
 
 			if(sizeof($res)>0)
 			{
