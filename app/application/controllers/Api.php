@@ -78,6 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		function insert_user(){
 			$stream_clean = $this->security->xss_clean($this->input->raw_input_stream);
+			echo $stream_clean;
 			$request = json_decode($stream_clean);
 			$json=json_decode($stream_clean);
 			print_r($json);
