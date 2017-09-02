@@ -204,7 +204,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$vehicle_id=$this->input->get('vehicle_id');
 			$info['vehicle_id']=$vehicle_id;
 			$res=$this->lisd_model->fetch_flag_by_id($info);
-			echo($res);
 			$ret['immobilize']=$res->immobilize;
 			echo json_encode($ret);
 		}
