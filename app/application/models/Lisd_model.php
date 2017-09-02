@@ -98,6 +98,7 @@
 		{
 			$this->db->select('trip_id');
 			$this->db->where($data);
+			$this->db->distinct();
 			$query=$this->db->get('trip_details');
 			return $query->result_array();
 		}
