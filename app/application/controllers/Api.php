@@ -74,12 +74,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function insert_user(){
 			//print_r($array);
 			$username=$this->input->get('first_name');
-			$lastname=$this->input->get('last_name'];
-			$password=$this->input->get('password'];
-			$confpass=$this->input->get('confirm_password'];
-			$user_name=$this->input->get('user_name'];
-			$email=$this->input->get('email_id'];
-			$contact=$this->input->get('contact_no'];
+			$lastname=$this->input->get('last_name');
+			$password=$this->input->get('password');
+			$confpass=$this->input->get('confirm_password');
+			$user_name=$this->input->get('user_name');
+			$email=$this->input->get('email_id');
+			$contact=$this->input->get('contact_no');
 			if($confpass==$password){
 			$info['user_name']=$user_name;
 			$info['user_firstname']=$username;
