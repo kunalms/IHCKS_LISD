@@ -19,9 +19,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function validate_user(){
-
-			$username=$this->input->get('username');
-			$password=$this->input->get('password');
+			var_dump($_POST);
+			$username=$this->input->post('username');
+			$password=$this->input->post('password');
 			echo ($username);
 			echo("hi");
 			echo ($password);
