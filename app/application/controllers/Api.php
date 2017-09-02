@@ -246,13 +246,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			$inp['user_id']=$user;
 			$locations=$this->lisd_model->fetch_gps_user($inp);
-			print_r($locations);
-			/*foreach ($locations as $item ) {
-				$item['pic_image']='https://www.kinetise.com/xml/assets/pin.png';
-				array_push($out,$item);
-			}*/
-			echo json_encode($locations);
+			//print_r($locations);
 
+
+			foreach($locations as $element) {
+        	$out[$element['trip_id']][] = ['latitude' => $element['latitude'], 'longitude' => $element['longitude'],'timestamp'=>$element['timestamp']];
+        	}
+
+        	echo json_encode($out);
 		}
 
 		function toogle_button(){
