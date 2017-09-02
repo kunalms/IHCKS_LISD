@@ -115,7 +115,7 @@
 		{
 			$this->db->where($data);
 			$res=$this->db->get('user_vehicle');
-			if(isset($res->row())){
+			if($res->row()!=null){
 				return true;
 			}
 			else{
