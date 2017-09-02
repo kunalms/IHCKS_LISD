@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$vehicle_count=$this->input->get('vehicle_count');
 			
 			$info['vehicle_type']=$vehicle_type;
-			$info['vehicle_pollution_count']=$vehicle_count;
+			$info['vehicle_count']=$vehicle_count;
 			$info['immobilize']='false';
 			
 			$res=$this->lisd_model->insert_vehicle($info);
