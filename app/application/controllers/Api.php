@@ -244,8 +244,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$user=$this->input->get('user_id');
 			$inp['user_id']=$user;
-			$locations=$this->lisd_model->fetch_gps_user($inp);
-			echo  json_encode($locations);
+			$trips=$this->lisd_model->fetch_gps_user($inp);
+			foreach ($trips as $trip ) {
+				$trip_details=$this->lisd_model->fetch_trip_by_trip_id($inp);
+				print_r($trip_details);
+			}
 
 		}
 

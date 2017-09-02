@@ -125,7 +125,7 @@
 		}
 
 		function fetch_trip_by_trip_id($id){
-			$this->db->where('trip_id'=>$id);
+			$this->db->where($id);
 			$query=$this->db->get('trip_details');
 			print_r($query->result_array());
 		}
