@@ -250,7 +250,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 			foreach($locations as $element) {
-        	$out[$element['trip_id']][] = ['latitude' => $element['latitude'], 'longitude' => $element['longitude'],'timestamp'=>$element['timestamp']];
+        	$out['trip_id'=>$element['trip_id']][] = ['latitude' => $element['latitude'], 'longitude' => $element['longitude'],'timestamp'=>$element['timestamp']];
         	}
 
         	echo json_encode($out);
