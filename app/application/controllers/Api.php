@@ -246,7 +246,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$inp['user_id']=$user;
 			$trips=$this->lisd_model->fetch_gps_user($inp);
 			foreach ($trips as $trip ) {
-				$trip_details=$this->lisd_model->fetch_trip_by_trip_id($inp);
+				$trip_details=$this->lisd_model->fetch_trip_by_trip_id($trip);
 				print_r($trip_details);
 			}
 
