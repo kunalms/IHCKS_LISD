@@ -14,13 +14,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		function index(){
+			ini_set('memory_limit', '1024M');
 			echo "api call";
 		}
 
 		function validate_user(){
-			
-			$username=filter_input(INPUT_POST, 'username');
-			$password=filter_input(INPUT_POST, 'password');
+
+			$username=$this->input->get('username');
+			$password=$this->input->get('password');
 			echo ($username);
 			echo("hi");
 			echo ($password);
