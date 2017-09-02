@@ -96,9 +96,10 @@
 
 		function fetch_gps_user($data)
 		{
+			$this->db->distinct();
 			$this->db->select('trip_id');
 			$this->db->where($data);
-			$this->db->distinct();
+
 			$query=$this->db->get('trip_details');
 			return $query->result_array();
 		}
@@ -121,6 +122,12 @@
 			$this->db->insert('user_vehicle', $data);
 			return true;
 			}
+		}
+
+		function fetch_trip_by_trip_id($id){
+			$this->db->where('trip_id'=>$id);
+			$query=$this->db->get('trip_details');
+			print_r($query->result_array());
 		}
 	}
 
