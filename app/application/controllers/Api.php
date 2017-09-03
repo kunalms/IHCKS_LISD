@@ -30,6 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				foreach ($res as $item ) {
 					$ret['sessionId']=$item['user_id'];
+					$ret['status']=1;
 					$desc['description']="login successful";
 					$ret['message']=$desc;
 					echo json_encode($ret);
@@ -38,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else{
 			$desc['description']="login unsuccessful";
+			$ret['status']=0;
 			$ret['message']=$desc;
 			echo json_encode($ret);
 			}
