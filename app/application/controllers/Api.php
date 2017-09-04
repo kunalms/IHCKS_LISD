@@ -260,7 +260,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}
 				array_push($final, $out);
 			}
-			echo json_encode($final);
+			$output['trips']=$final;
+			echo json_encode($output);
 
 		}
 
