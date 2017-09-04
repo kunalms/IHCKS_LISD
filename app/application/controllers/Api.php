@@ -69,8 +69,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$inp['user_id']=$user;
 			$vehicles=$this->lisd_model->fetch_user_vehicles($inp);
 
-			$out=array();
-			echo json_encode($vehicles);
+			$out['vehicles']=$vehicles;
+
+			echo json_encode($out);
 
 		}
 
