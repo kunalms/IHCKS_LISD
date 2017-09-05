@@ -30,6 +30,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				foreach ($res as $item ) {
 					$ret['sessionId']=$item['user_id'];
+					$ret['user_firstname']=$item['user_firstname'];
+					$ret['user_lastname']=$item['user_lastname'];
+					$ret['user_contact']=$item['user_contact'];
+					$ret['user_email']=$item['user_email'];
+					$ret['user_password']=$item['user_password'];
+					$ret['user_name']=$item['user_name'];
 					$ret['status']=1;
 					$desc['description']="login successful";
 					$ret['message']=$desc;
