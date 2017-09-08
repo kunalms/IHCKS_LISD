@@ -17,12 +17,12 @@ def trip_init(vehicle_id):
 				longitude=(location[1])
 				if latitude != "0.0" and longitude != "0.0":
 					userdata={}
-					userdata["user_id"]="109"
+					userdata["user_id"]="11"
 					userdata["vehicle_id"]=vehicle_id
 					userdata["timestamp"]=dt
 					userdata["latitude"]=latitude
 					userdata["longitude"]=longitude
-					link = """https://api.expertise97.hasura-app.io/api/insert_trip?user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}""".format(str1=userdata["user_id"],
+					link = """https://lisd.backslapping80.hasura-app.io/api/insert_trip?user_id={str1}&vehicle_id={str2}&latitude={str3}&longitude={str4}&timestamp={str5}""".format(str1=userdata["user_id"],
 																											str2=userdata["vehicle_id"],
 																											str3=userdata["latitude"],
 																											str4=userdata["longitude"],

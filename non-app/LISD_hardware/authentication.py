@@ -18,7 +18,7 @@ GPIO.setup(WHITE_LED,GPIO.OUT)
 GPIO.setup(GREEN_LED,GPIO.OUT)
 
 theft=False
-vehicle_id="104"
+vehicle_id="1"
 while not theft:
         x=os.popen("node card2.js").read().split('\n')
         if x[0] == "card removed":

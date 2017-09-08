@@ -3,7 +3,7 @@ import pynmea2
 def loc():
 	z=0;
 	while z<=5:
-		serialStream = serial.Serial("/dev/ttyS0", 9600, timeout=1)
+		serialStream = serial.Serial("/dev/serial0", 9600, timeout=1)
 		sentence = serialStream.readline()
 		z+=1
 		if sentence.find('GGA') > 0:
