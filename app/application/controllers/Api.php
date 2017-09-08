@@ -283,7 +283,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         			$out['longitude'][] = $element['longitude'];
         			$out['latitude'][] = $element['latitude'];
         			$out['timestamp'][] = $element['timestamp'];
-        			$out['islive']=$this->lisd_model->islive($check);
+        			$out['islive']=$this->lisd_model->is_live($check);
 				}
 				array_push($final, $out);
 			}
