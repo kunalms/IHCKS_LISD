@@ -133,7 +133,7 @@
 		function check_username($username){
 			$this->db->where($username);
 			$query=$this->db->get('users');
-			if($res->row()!=null){
+			if($query->row()!=null){
 				return false;
 			}
 			else{
