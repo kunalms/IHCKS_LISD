@@ -142,7 +142,8 @@
 		}
 
 		function is_live($id){
-			$query=$this->db->where($id);
+			$this->db->where($id);
+			$query=$this->db->get('trip_details');
 			if($query->row()!=null){
 				return false;
 			}
