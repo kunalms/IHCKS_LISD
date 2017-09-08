@@ -273,7 +273,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$out=[];
 				foreach($trip_details as $element) {
 
-					$this->lisd_model->islive();
 					$check['trip_id']=$element['trip_id'];
 					$check['is_trip_live']='false';
 
