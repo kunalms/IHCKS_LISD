@@ -90,27 +90,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$user_name=$this->input->get('user_name');
 			$email=$this->input->get('email_id');
 			$contact=$this->input->get('contact_no');
-			if($confpass==$password){
-			$info['user_name']=$user_name;
-			$info['user_firstname']=$username;
-			$info['user_lastname']=$lastname;
-			$info['user_password']=$password;
-			$info['user_email']=$email;
-			$info['user_contact']=$contact;
+
+			if($this->lisd_model->check_username($user_name)){
+
+				if($confpass==$password){
+				$info['user_name']=$user_name;
+				$info['user_firstname']=$username;
+				$info['user_lastname']=$lastname;
+				$info['user_password']=$password;
+				$info['user_email']=$email;
+				$info['user_contact']=$contact;
+				
+				$res=$this->lisd_model->insert_user($info);
+				}
+				if($res==true){
+					$ret['status']=1;
+					$ret['message']="registration successful";
+					echo json_encode($ret);
+				}
+				else
+				{
+					$ret['message']="registration unsuccessful";
+					$ret['status']=1;
+					echo json_encode($ret);
+				}	
+			}
+			else {
+					$ret['message']="username already exists";
+					$ret['status']=3;
+					echo json_encode($ret);
+			}
+
 			
-			$res=$this->lisd_model->insert_user($info);
-			}
-			if($res==true){
-				$desc['description']="registration successful";
-				$ret['message']=$desc;
-				echo json_encode($ret);
-			}
-			else
-			{
-				$desc['description']="registration unsuccessful";
-				$ret['message']=$desc;
-				echo json_encode($ret);
-			}
 		}
 
 
