@@ -117,8 +117,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}	
 			}
 			else {
-					$ret['message']="username already exists";
 					$ret['status']=3;
+					$ret['message']="username already exists";
+					
 					echo json_encode($ret);
 			}
 
