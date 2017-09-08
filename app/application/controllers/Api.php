@@ -272,12 +272,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$trip_details=$this->lisd_model->fetch_trip_by_trip_id($trip);
 				$out=[];
 				foreach($trip_details as $element) {
+
+					$this->lisd_model->islive();
+					$check['trip_id']=$element['trip_id'];
+					$check['is_trip_live']='false';
+
 					$out['trip_id']=$element['trip_id'];
 					$out['user_id']=$element['user_id'];
 					$out['vehicle_id']=$element['vehicle_id'];
         			$out['longitude'][] = $element['longitude'];
         			$out['latitude'][] = $element['latitude'];
         			$out['timestamp'][] = $element['timestamp'];
+        			$out['islive']=$this->lisd_model->islive($check);
 				}
 				array_push($final, $out);
 			}

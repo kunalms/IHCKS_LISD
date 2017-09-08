@@ -140,6 +140,17 @@
 				return true;
 			}
 		}
+
+		function is_live($id){
+			$query=$this->db->where($id);
+			if($query->row()!=null){
+				return false;
+			}
+			else{
+				return true;
+			}	
+		}
+
 	}
 
  ?>
