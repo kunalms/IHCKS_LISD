@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$email=$this->input->get('email_id');
 			$contact=$this->input->get('contact_no');
 
-			if($this->lisd_model->check_username($user_name)){
+			if($this->lisd_model->check_username($user['user_name']=$user_name)){
 
 				if($confpass==$password){
 				$info['user_name']=$user_name;

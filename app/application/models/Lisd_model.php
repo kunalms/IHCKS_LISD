@@ -129,6 +129,17 @@
 			$query=$this->db->get('trip_details');
 			return $query->result_array();
 		}
+
+		function check_username($username){
+			$this->db->where($username);
+			$query=$this->db->get('users');
+			if($res->row()!=null){
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
 	}
 
  ?>
